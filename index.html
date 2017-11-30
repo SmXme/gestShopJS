@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>gestShop</title>
-</head>
-<body>
-	<h1>Produits</h1>
-	<input type="text" name="inputProductName" id="inputProductName">
-	<input type="text" name="inputProductPrice" id="inputProductPrice">
-	<input type="text" name="inputProductQty" id="inputProductQty">
-	<input type="button" name="inputAddProduct" id="inputAddProduct" value="Ajouter Produit">
-	<ul id='productsList'>
-	</ul>
+	<head>
+		<meta charset="UTF-8">
+		<title>gestShop</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<h1>Marques</h1>
+		<input type="text" name="inputBrandName" id="inputBrandName">
+		<input type="button" name="inputAddBrand" id="inputAddBrand" value="Ajouter Marque">
+		<ul id='brandsList'>
+		</ul>
+		
+		<div id="productInfo">
+			<h1 id="titleProductName"></h1>
+			<ul id='productsList'>
+			</ul>
+			<input type="text" name="inputProductName" id="inputProductName">
+			<input type="text" name="inputProductPrice" id="inputProductPrice">
+			<input type="text" name="inputProductQty" id="inputProductQty">
+			<input type="button" name="inputAddProduct" id="inputAddProduct" value="Ajouter Produit">
+		</div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-	<script src="js/script.js"></script>
-</body>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+		<script src="js/script.js"></script>
+	</body>
 </html>
