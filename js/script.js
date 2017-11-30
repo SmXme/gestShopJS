@@ -48,7 +48,7 @@ function addProduct(){
 }
 
 function showProductList(){
-	$('#productInfo').css("display","block");
+	$('#productInfo').fadeIn();
 	$('#productsList').html("");
 	for (var i = 0 ; i < myBrands[index].brandProducts.length ; i++) {
 		$('#productsList').append('<li class="productLine">'+myBrands[index].brandProducts[i].name+'</li>');
@@ -61,7 +61,6 @@ function addBrand(){
 		$('#inputBrandName').val('');
 		$('#inputBrandName').focus();
 		showBrandList();
-		console.log(myBrands);
 	}
 }
 
@@ -77,7 +76,6 @@ function selectBrand(){
 
 	$('#titleProductName').html(  $(this).text()  );
 	selectedBrand = $(this).text();
-	console.log(selectedBrand);
 	for(var k = 0 ; k < myBrands.length ; k++){
 		if (myBrands[k].name == selectedBrand) index = k;
 	}

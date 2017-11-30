@@ -13,9 +13,8 @@ ul{
 }
 .inputDeleteBrand{
 	position: absolute;
-	margin-top:10px;
 	right: 10px;
-	top:-4px;
+	top:5px;
 }
 .inputDeleteBrand:hover{
 	background-color: white; 
@@ -28,6 +27,7 @@ ul{
 	border-bottom: 1px solid white;
 	padding-left: 2%; 
 	color: white;
+	margin-top:10px;
 	position: relative;
 }
 .brandLine:hover{
