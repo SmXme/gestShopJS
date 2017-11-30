@@ -23,22 +23,26 @@ $('#inputAddProduct').click(addProduct);
 $('#inputAddBrand').click(addBrand);
 function init(){
 	$('.brandLine').click(selectBrand);
-	$('#inputDeleteBrand').click(function(){
-		toDelete = $(this).parent().text(); 
-		for (var i = 0 ; i < myBrands.length ; i++){
-			if (myBrands[i].name == toDelete){
-				myBrands.splice(i, 1);
-			}
-		}
-		$(this).parent().remove();
-	});
+	$('.inputDeleteBrand').click(removeBrand);
 }
 
 
 // 				FUNCTIONS				  //
+
+function removeBrand(){
+	toDelete = $(this).parent().text(); 
+	for (var i = 0 ; i < myBrands.length ; i++){
+		if (myBrands[i].name == toDelete){
+			myBrands.splice(i, 1);
+		}
+	}
+	$(this).parent().remove();
+}
 function addProduct(){
-	myBrands[index].brandProducts.push(new Products($('#inputProductName').val(),$('#inputProductPrice').val(),$('#inputProductQty').val()));
-	showProductList();
+	if ($('#inputProductName').val() != '' && $('#inputProductPrice').val() != '' && $('#inputProductQty').val() != ''){
+		myBrands[index].brandProducts.push(new Products($('#inputProductName').val(),$('#inputProductPrice').val(),$('#inputProductQty').val()));
+		showProductList();
+	}
 }
 
 function showProductList(){
@@ -50,17 +54,19 @@ function showProductList(){
 }
 
 function addBrand(){
-	myBrands.push(new Brands($('#inputBrandName').val()));
-	$('#inputBrandName').val('');
-	$('#inputBrandName').focus();
-	showBrandList();
-	console.log(myBrands);
+	if ($('#inputBrandName').val() != ""){
+		myBrands.push(new Brands($('#inputBrandName').val()));
+		$('#inputBrandName').val('');
+		$('#inputBrandName').focus();
+		showBrandList();
+		console.log(myBrands);
+	}
 }
 
 function showBrandList(){
 	$('#brandsList').html("");
 	for (var i = 0 ; i < myBrands.length ; i++) {
-		$('#brandsList').append('<li class="brandLine">'+myBrands[i].name+'<input id="inputDeleteBrand" type="button" value="Supprimer"></li>');
+		$('#brandsList').append('<li class="brandLine">'+myBrands[i].name+'<input class="inputDeleteBrand" type="button" value="Supprimer"></li>');
 	}
 	init();
 }
