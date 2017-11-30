@@ -8,20 +8,28 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<h1>Marques</h1>
-			<input type="text" name="inputBrandName" id="inputBrandName">
-			<input type="button" name="inputAddBrand" id="inputAddBrand" value="Ajouter Marque">
-			<ul id='brandsList'>
-			</ul>
-			
-			<div id="productInfo">
-				<h1 id="titleProductName"></h1>
-				<ul id='productsList'>
-				</ul>
-				<input type="text" name="inputProductName" id="inputProductName">
-				<input type="text" name="inputProductPrice" id="inputProductPrice">
-				<input type="text" name="inputProductQty" id="inputProductQty">
-				<input type="button" name="inputAddProduct" id="inputAddProduct" value="Ajouter Produit">
+			<div id="mainSection" class="row">
+				<div class="col-4 p-0 m-0 bg-primary">
+					<h3 class="text-center">Marques</h3>
+					<div id="divFormBrand" class="form-group justify-content-center">
+						<input class="form-control form-control-sm" placeholder="Nom de la marque" type="text" name="inputBrandName" id="inputBrandName">
+						<input class="form-control form-control-sm" type="button" name="inputAddBrand" id="inputAddBrand" value="Ajouter Marque">
+					</div>
+					<ul class="p-0 m-0" id='brandsList'>
+					</ul>
+				</div>
+
+				<div class="col-8">
+					<div id="productInfo">
+						<h1 id="titleProductName"></h1>
+						<ul id='productsList'>
+						</ul>
+						<input type="text" placeholder="Nom du produit" name="inputProductName" id="inputProductName">
+						<input type="text" placeholder="Prix du produit" name="inputProductPrice" id="inputProductPrice">
+						<input type="text" placeholder="Quantité du produit" name="inputProductQty" id="inputProductQty">
+						<input type="button" name="inputAddProduct" id="inputAddProduct" value="Ajouter Produit">
+					</div>
+				</div>
 			</div>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"

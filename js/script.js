@@ -1,6 +1,5 @@
 // 				GLOBAL VARIABLES				  //
 
-myProducts=[];
 myBrands=[];
 selectedBrand ="";
 index = -1;
@@ -42,6 +41,9 @@ function addProduct(){
 	if ($('#inputProductName').val() != '' && $('#inputProductPrice').val() != '' && $('#inputProductQty').val() != ''){
 		myBrands[index].brandProducts.push(new Products($('#inputProductName').val(),$('#inputProductPrice').val(),$('#inputProductQty').val()));
 		showProductList();
+		$('#inputProductName').val("");
+		$('#inputProductPrice').val("");
+		$('#inputProductQty').val("");
 	}
 }
 
@@ -66,7 +68,7 @@ function addBrand(){
 function showBrandList(){
 	$('#brandsList').html("");
 	for (var i = 0 ; i < myBrands.length ; i++) {
-		$('#brandsList').append('<li class="brandLine">'+myBrands[i].name+'<input class="inputDeleteBrand" type="button" value="Supprimer"></li>');
+		$('#brandsList').append('<li class="brandLine">'+myBrands[i].name+'<input class="btn btn-sm inputDeleteBrand" type="button" value="Supprimer"></li>');
 	}
 	init();
 }
