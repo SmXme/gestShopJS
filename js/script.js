@@ -2,14 +2,14 @@
 
 myProducts=[];
 myBrands=[];
-
-
+selectedBrand ="";
+index = -1;
 
 // 				CLASSES				  //
 function Products (productName,productPrice,productQty){
-	this.name= theName;
-	this.price = thePrice;
-	this.qty = theQty;
+	this.name= productName;
+	this.price = productPrice;
+	this.qty = productQty;
 }
 
 function Brands(brandName){
@@ -18,38 +18,60 @@ function Brands(brandName){
 }
 
 
-
-
-
 // 				EVENTLISTENERS				  //
 $('#inputAddProduct').click(addProduct);
 $('#inputAddBrand').click(addBrand);
-
-
+function init(){
+	$('.brandLine').click(selectBrand);
+	$('#inputDeleteBrand').click(function(){
+		toDelete = $(this).parent().text(); 
+		for (var i = 0 ; i < myBrands.length ; i++){
+			if (myBrands[i].name == toDelete){
+				myBrands.splice(i, 1);
+			}
+		}
+		$(this).parent().remove();
+	});
+}
 
 
 // 				FUNCTIONS				  //
 function addProduct(){
-	myProducts.push(new Products($('#inputProductName').val(),$('#inputProductPrice').val(),$('#inputProductQty').val()));
+	myBrands[index].brandProducts.push(new Products($('#inputProductName').val(),$('#inputProductPrice').val(),$('#inputProductQty').val()));
 	showProductList();
 }
 
 function showProductList(){
+	$('#productInfo').css("display","block");
 	$('#productsList').html("");
-	for (var i = 0 ; i < myProducts.length ; i++) {
-		$('#productsList').append('<li class="productLine">'+myProducts[i].name+'</li>');
+	for (var i = 0 ; i < myBrands[index].brandProducts.length ; i++) {
+		$('#productsList').append('<li class="productLine">'+myBrands[index].brandProducts[i].name+'</li>');
 	}
 }
 
 function addBrand(){
 	myBrands.push(new Brands($('#inputBrandName').val()));
-	console.log(myBrands);
+	$('#inputBrandName').val('');
+	$('#inputBrandName').focus();
 	showBrandList();
+	console.log(myBrands);
 }
 
 function showBrandList(){
 	$('#brandsList').html("");
 	for (var i = 0 ; i < myBrands.length ; i++) {
-		$('#brandsList').append('<li class="brandLine">'+myBrands[i].name+'</li>');
+		$('#brandsList').append('<li class="brandLine">'+myBrands[i].name+'<input id="inputDeleteBrand" type="button" value="Supprimer"></li>');
 	}
+	init();
+}
+
+function selectBrand(){
+
+	$('#titleProductName').html(  $(this).text()  );
+	selectedBrand = $(this).text();
+	console.log(selectedBrand);
+	for(var k = 0 ; k < myBrands.length ; k++){
+		if (myBrands[k].name == selectedBrand) index = k;
+	}
+	showProductList();
 }
